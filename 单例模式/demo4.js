@@ -5,7 +5,6 @@
 var getSingle = function (fn) {
   var result
   return function () {
-    console.log('result', result)
     return result || (result = fn.apply(this, arguments))
   }
 }
