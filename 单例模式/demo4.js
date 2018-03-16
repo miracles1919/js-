@@ -20,10 +20,10 @@ var createLoginLayer = function () {
 
 var createSingleLoginLayer = getSingle(createLoginLayer)
 
-// document.getElementById('loginBtn').onclick = function () {
-//   var loginLayer = createLoginLayer()
-//   loginLayer.style.display = 'block'
-// }
+document.getElementById('loginBtn').onclick = function () {
+  var loginLayer = createLoginLayer()
+  loginLayer.style.display = 'block'
+}
 
 // 创建唯一的 iframe
 
@@ -41,15 +41,10 @@ var bindEvent = getSingle(function () {
   return true
 })
 
-var test = getSingle(function () {
-  console.log(222)
-  return 222
-})
 
 var render = function () {
   console.log('开始渲染')
-  // bindEvent()
-  test()
+  bindEvent()
 }
 
 // div 实际只绑定了一个事件
