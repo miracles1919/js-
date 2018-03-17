@@ -42,12 +42,12 @@ var Animate = function (dom) {
 }
 
 Animate.prototype.start = function (propertyName, endPos, duration, easing) {
-  this.startTime = new Date
+  this.startTime = +new Date
   this.startPos = this.dom.getBoundingClientRect()[propertyName]
   this.propertyName = propertyName
   this.endPos = endPos
   this.duration = duration
-  this.easing = endPos
+  this.easing = tween[easing]
 
   var self = this
   var timer = setInterval(function () {
@@ -58,7 +58,7 @@ Animate.prototype.start = function (propertyName, endPos, duration, easing) {
 }
 
 Animate.prototype.step = function () {
-  var t = new Date
+  var t = +new Date
   if (t > this.startTime + this.duration) {
     this.update(this.endPos)
     return false
@@ -71,3 +71,8 @@ Animate.prototype.step = function () {
 Animate.prototype.update = function (pos) {
   this.dom.style[this.propertyName] = pos + 'px'
 }
+
+// 测试
+var ball = document.getElementById('ball')
+var animate = new Animate(ball)
+animate.start('top', 500, 1500, 'sineaseIn')
