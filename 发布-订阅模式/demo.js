@@ -21,6 +21,22 @@ var event = {
         for (var i = 0, fn; fn = fns[i++]; ) {
             fn.apply(this, arguments)   // arguments是trigger时带上的参数
         }
+    },
+    remove: function (key, fn) {
+        var fns = this.clientList[key]
+        if (!fns) {
+            return false
+        }
+        if (!fn) {  // 如果没有传入具体的回掉函数，则取消key对应消息的所有订阅
+            fns && (fns.length = 0)
+        } else {
+            for (var i = fns.length - 1; i >=0 ; i--) { // 反向遍历订阅的回调函数列表
+                var _fn = fns[i]
+                if (_fn === fn) {
+                    fns.splice(i, 1)
+                }
+            }
+        }
     }
 }
 

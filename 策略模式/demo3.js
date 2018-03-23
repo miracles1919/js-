@@ -73,6 +73,6 @@ Animate.prototype.update = function (pos) {
 }
 
 // 测试
-var ball = document.getElementById('ball')
-var animate = new Animate(ball)
-animate.start('top', 500, 1500, 'sineaseIn')
+// var ball = document.getElementById('ball')
+// var animate = new Animate(ball)
+// animate.start('top', 500, 1500, 'sineaseIn')
