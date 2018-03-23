@@ -33,13 +33,15 @@ var commands = {
 
 var commandStack = []
 
-document.onkeypress = function (e) {
-    var keyCode = e.keyCode,
-        command = makeComannd(Ryu, commands[keyCode])
-
-    if (command) {
-        command()
-        commandStack.push(command)
+document.getElementById('record').click = function () {
+    document.onkeypress = function (e) {
+        var keyCode = e.keyCode,
+            command = makeComannd(Ryu, commands[keyCode])
+    
+        if (command) {
+            command()
+            commandStack.push(command)
+        }
     }
 }
 
