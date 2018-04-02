@@ -86,6 +86,7 @@ var UploadFactory = (function(){
     }
 })()
 
+// 管理器封装外部状态
 var uploadManager = (function(){
     var uploadDatabase = {}
     
